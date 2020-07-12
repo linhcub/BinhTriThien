@@ -8,11 +8,11 @@ using System.Windows.Forms;
 
 namespace BinhTriThienQuanLyNhanSu
 {
-    public partial class Form1 : Form
+    public partial class QuanLyNhanVienForm : Form
     {
         BinhTriThienContext context = new BinhTriThienContext();
 
-        public Form1()
+        public QuanLyNhanVienForm()
         {
             InitializeComponent();
             View();

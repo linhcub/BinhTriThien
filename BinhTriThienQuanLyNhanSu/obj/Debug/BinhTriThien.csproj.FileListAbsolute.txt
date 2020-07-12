@@ -67,10 +67,12 @@ D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\bin\Debug\ru\Micr
 D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThien.csprojAssemblyReference.cache
-D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThienQuanLyNhanSu.Form1.resources
 D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThienQuanLyNhanSu.Properties.Resources.resources
 D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThien.csproj.GenerateResource.cache
 D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThien.csproj.CoreCompileInputs.cache
 D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThien.csproj.CopyComplete
 D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThienQuanLyNhanSu.exe
 D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThienQuanLyNhanSu.pdb
+D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\bin\Debug\FontAwesome.Sharp.dll
+D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThienQuanLyNhanSu.GUI.HomeForm.resources
+D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThienQuanLyNhanSu.QuanLyNhanVienForm.resources

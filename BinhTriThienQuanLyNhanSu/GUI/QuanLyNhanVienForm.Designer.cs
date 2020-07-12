@@ -1,6 +1,6 @@
 ﻿namespace BinhTriThienQuanLyNhanSu
 {
-    partial class Form1
+    partial class QuanLyNhanVienForm
     {
         /// <summary>
         /// Required designer variable.
@@ -302,7 +302,7 @@
             this.cbBacXepHang.Size = new System.Drawing.Size(146, 21);
             this.cbBacXepHang.TabIndex = 25;
             // 
-            // Form1
+            // QuanLyNhanVienForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -334,8 +334,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txbMaNhanVien);
             this.Controls.Add(this.nhanVienGrid);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "QuanLyNhanVienForm";
+            this.Text = "QUẢN LÝ NHÂN VIÊN";
             ((System.ComponentModel.ISupportInitialize)(this.nhanVienGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAnhDaiDien)).EndInit();
             this.ResumeLayout(false);
