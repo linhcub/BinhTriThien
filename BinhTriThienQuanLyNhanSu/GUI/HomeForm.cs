@@ -93,6 +93,8 @@ namespace BinhTriThienQuanLyNhanSu.GUI
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
+            // mine
+            childForm.Anchor = AnchorStyles.None;
             panelDesktop.Controls.Add(childForm);
             panelDesktop.Tag = childForm;
             childForm.BringToFront();

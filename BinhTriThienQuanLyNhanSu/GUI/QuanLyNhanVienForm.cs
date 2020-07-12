@@ -15,7 +15,6 @@ namespace BinhTriThienQuanLyNhanSu
         public QuanLyNhanVienForm()
         {
             InitializeComponent();
-            View();
         }
 
         private void View()
@@ -23,6 +22,7 @@ namespace BinhTriThienQuanLyNhanSu
             var nhanViens = context.NhanVien.Select(nhanVien => new
             {
                 nhanVien.MaNhanVien,
+                nhanVien.MatKhau,
                 nhanVien.Ho,
                 nhanVien.Ten,
                 nhanVien.DiaChi,
@@ -35,11 +35,22 @@ namespace BinhTriThienQuanLyNhanSu
             var nhanVienList = nhanViens.ToList();
             nhanVienGrid.DataSource = nhanVienList;
             txbMaNhanVien.DataBindings.Clear();
+            txbMatKhau.DataBindings.Clear();
             txbHo.DataBindings.Clear();
             txbTen.DataBindings.Clear();
+            txbDiaChi.DataBindings.Clear();
+            txbEmail.DataBindings.Clear();
+            txbDienThoaiDiDong.DataBindings.Clear();
+            txbDienThoaiCoDinh.DataBindings.Clear();
+
             txbMaNhanVien.DataBindings.Add(new Binding("Text", nhanVienList, "MaNhanVien"));
+            txbMatKhau.DataBindings.Add(new Binding("Text", nhanVienList, "MatKhau"));
             txbHo.DataBindings.Add(new Binding("Text", nhanVienList, "Ho"));
             txbTen.DataBindings.Add(new Binding("Text", nhanVienList, "Ten"));
+            txbDiaChi.DataBindings.Add(new Binding("Text", nhanVienList, "DiaChi"));
+            txbEmail.DataBindings.Add(new Binding("Text", nhanVienList, "Email"));
+            txbDienThoaiDiDong.DataBindings.Add(new Binding("Text", nhanVienList, "DienThoaiDiDong"));
+            txbDienThoaiCoDinh.DataBindings.Add(new Binding("Text", nhanVienList, "DienThoaiCoDinh"));
 
             cbLoaiTaiKhoan.DataSource = context.LoaiTaiKhoan.Select(ltk => ltk.Ten).ToList();
             cbBacXepHang.DataSource = context.BacXepHang.Select(bxh => bxh.Ten).ToList();
@@ -68,10 +79,10 @@ namespace BinhTriThienQuanLyNhanSu
                 MatKhau = txbMaNhanVien.Text,
                 Ho = txbHo.Text,
                 Ten = txbTen.Text,
-                // manhanvien = "nv00001",
-                // manhanvien = "nv00001",
-                // manhanvien = "nv00001",
-                // manhanvien = "nv00001",
+                DiaChi = txbDiaChi.Text,
+                Email = txbEmail.Text,
+                DienThoaiDiDong = txbDienThoaiDiDong.Text,
+                DienThoaiCoDinh = txbDienThoaiCoDinh.Text,
                 LoaiTaiKhoan = taiKhoanAdmin,
                 BacXepHang = bac1
 
@@ -88,15 +99,15 @@ namespace BinhTriThienQuanLyNhanSu
             var taiKhoanAdmin = context.LoaiTaiKhoan.First(taikhoan => taikhoan.MaLoaiTaiKhoan == "TK01");
             var bac1 = context.BacXepHang.First(bacxephang => bacxephang.MaBacXepHang == "Bac01");
             nhanVien.MaNhanVien = txbMaNhanVien.Text;
-            nhanVien.MatKhau = txbMaNhanVien.Text;
+            nhanVien.MatKhau = txbMatKhau.Text;
             nhanVien.Ho = txbHo.Text;
             nhanVien.Ten = txbTen.Text;
-                // manhanvien = "nv00001",
-                // manhanvien = "nv00001",
-                // manhanvien = "nv00001",
-                // manhanvien = "nv00001",
-                // LoaiTaiKhoan = taiKhoanAdmin,
-                // BacXepHang = bac1
+            nhanVien.DiaChi = txbDiaChi.Text;
+            nhanVien.Email = txbEmail.Text;
+            nhanVien.DienThoaiDiDong = txbDienThoaiDiDong.Text;
+            nhanVien.DienThoaiCoDinh = txbDienThoaiCoDinh.Text;
+            nhanVien.LoaiTaiKhoan = taiKhoanAdmin;
+            nhanVien.BacXepHang = bac1;
             context.SaveChanges();
         }
 
