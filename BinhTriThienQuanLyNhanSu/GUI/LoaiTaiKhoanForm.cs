@@ -23,7 +23,7 @@ namespace BinhTriThienQuanLyNhanSu
         {
             dtgvLoaiTaiKhoan.DataSource = context.LoaiTaiKhoan.Select(ltk => new
             {
-                ltk.MaLoaiTaiKhoan,
+                ltk.Ma,
                 ltk.Ten,
                 ltk.CapDo
             }).ToList();

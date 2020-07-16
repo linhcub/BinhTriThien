@@ -11,7 +11,7 @@ namespace BinhTriThienQuanLyNhanSu.Models
         public int Id { get; set; }
         [Required]
         [StringLength(10)]
-        public string MaGa { get; set; }
+        public string Ma { get; set; }
         [Required]
         [StringLength(50)]
         public string Ten { get; set; }

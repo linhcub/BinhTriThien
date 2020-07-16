@@ -35,7 +35,7 @@ namespace BinhTriThienQuanLyNhanSu.Models
         {
             modelBuilder.Entity<BacXepHang>(entity =>
             {
-                entity.HasIndex(e => e.MaBacXepHang)
+                entity.HasIndex(e => e.Ma)
                     .HasName("UK_BacXepHang_MaBacXepHang")
                     .IsUnique();
             });
@@ -50,7 +50,7 @@ namespace BinhTriThienQuanLyNhanSu.Models
 
                 entity.HasIndex(e => e.CungTruong);
 
-                entity.HasIndex(e => e.MaCung)
+                entity.HasIndex(e => e.Ma)
                     .HasName("UK_Cung_MaCung")
                     .IsUnique();
 
@@ -72,7 +72,6 @@ namespace BinhTriThienQuanLyNhanSu.Models
                 entity.HasOne(d => d.CungTruongNavigation)
                     .WithMany(p => p.CungCungTruongNavigation)
                     .HasForeignKey(d => d.CungTruong)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_CungTruong_NhanVien");
             });
 
@@ -80,7 +79,7 @@ namespace BinhTriThienQuanLyNhanSu.Models
             {
                 entity.HasIndex(e => e.CungId);
 
-                entity.HasIndex(e => e.MaGa)
+                entity.HasIndex(e => e.Ma)
                     .HasName("UK_Ga_MaGa")
                     .IsUnique();
 
@@ -92,7 +91,7 @@ namespace BinhTriThienQuanLyNhanSu.Models
 
             modelBuilder.Entity<LoaiTaiKhoan>(entity =>
             {
-                entity.HasIndex(e => e.MaLoaiTaiKhoan)
+                entity.HasIndex(e => e.Ma)
                     .HasName("UK_LoaiTaiKhoan_MaLoaiTaiKhoan");
             });
 
@@ -102,25 +101,36 @@ namespace BinhTriThienQuanLyNhanSu.Models
 
                 entity.HasIndex(e => e.LoaiTaiKhoanId);
 
-                entity.HasIndex(e => e.MaNhanVien)
+                entity.HasIndex(e => e.Ma)
                     .HasName("UK_NhanVien_MaNhanVien")
                     .IsUnique();
 
                 entity.HasOne(d => d.BacXepHang)
                     .WithMany(p => p.NhanVien)
                     .HasForeignKey(d => d.BacXepHangId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_NhanVien_BacXepHang");
+
+                entity.HasOne(d => d.Cung)
+                    .WithMany(p => p.NhanVien)
+                    .HasForeignKey(d => d.CungId)
+                    .HasConstraintName("FK_NhanVien_Cung");
 
                 entity.HasOne(d => d.LoaiTaiKhoan)
                     .WithMany(p => p.NhanVien)
                     .HasForeignKey(d => d.LoaiTaiKhoanId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_NhanVien_LoaiTaiKhoan");
+
+                entity.HasOne(d => d.Phong)
+                    .WithMany(p => p.NhanVien)
+                    .HasForeignKey(d => d.PhongId)
+                    .HasConstraintName("FK_NhanVien_Phong");
             });
 
             modelBuilder.Entity<Phong>(entity =>
             {
-                entity.HasIndex(e => e.MaPhong)
+                entity.HasIndex(e => e.Ma)
                     .HasName("UK_Phong_MaPhong")
                     .IsUnique();
 
@@ -136,7 +146,6 @@ namespace BinhTriThienQuanLyNhanSu.Models
                 entity.HasOne(d => d.TruongPhongNavigation)
                     .WithMany(p => p.PhongTruongPhongNavigation)
                     .HasForeignKey(d => d.TruongPhong)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_TruongPhong_NhanVien");
             });
 

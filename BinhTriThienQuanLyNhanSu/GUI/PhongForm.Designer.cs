@@ -30,7 +30,7 @@
         {
             this.dtgvPhong = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.MaPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TruongPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhoPhong = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,7 +42,7 @@
             this.dtgvPhong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvPhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvPhong.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaPhong,
+            this.Ma,
             this.Ten,
             this.TruongPhong,
             this.PhoPhong});
@@ -62,11 +62,11 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Đang phát triển";
             // 
-            // MaPhong
+            // Ma
             // 
-            this.MaPhong.DataPropertyName = "MaPhong";
-            this.MaPhong.HeaderText = "Mã";
-            this.MaPhong.Name = "MaPhong";
+            this.Ma.DataPropertyName = "Ma";
+            this.Ma.HeaderText = "Mã Phòng";
+            this.Ma.Name = "Ma";
             // 
             // Ten
             // 
@@ -106,7 +106,7 @@
 
         private System.Windows.Forms.DataGridView dtgvPhong;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaPhong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ma;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
         private System.Windows.Forms.DataGridViewTextBoxColumn TruongPhong;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhoPhong;

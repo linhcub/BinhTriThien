@@ -188,15 +188,6 @@
     <Compile Include="GUI\HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20200711215308_Initial.cs" />
-    <Compile Include="Migrations\20200711215308_Initial.designer.cs">
-      <DependentUpon>20200711215308_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20200712091647_AddAnhDaiDien.cs" />
-    <Compile Include="Migrations\20200712091647_AddAnhDaiDien.designer.cs">
-      <DependentUpon>20200712091647_AddAnhDaiDien.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\BinhTriThienContextModelSnapshot.cs" />
     <Compile Include="Models\BacXepHang.cs" />
     <Compile Include="Models\BinhTriThienContext.cs" />
     <Compile Include="Models\Cung.cs" />

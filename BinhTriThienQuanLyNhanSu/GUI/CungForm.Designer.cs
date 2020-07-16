@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dtgvCung = new System.Windows.Forms.DataGridView();
-            this.MaCung = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CungTruong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CungPho = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,7 +54,7 @@
             this.dtgvCung.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvCung.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvCung.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaCung,
+            this.Ma,
             this.Ten,
             this.CungTruong,
             this.CungPho,
@@ -66,11 +66,11 @@
             this.dtgvCung.Size = new System.Drawing.Size(1028, 285);
             this.dtgvCung.TabIndex = 4;
             // 
-            // MaCung
+            // Ma
             // 
-            this.MaCung.DataPropertyName = "MaCung";
-            this.MaCung.HeaderText = "Mã";
-            this.MaCung.Name = "MaCung";
+            this.Ma.DataPropertyName = "Ma";
+            this.Ma.HeaderText = "Mã Cung";
+            this.Ma.Name = "Ma";
             // 
             // Ten
             // 
@@ -122,7 +122,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtgvCung;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaCung;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ma;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
         private System.Windows.Forms.DataGridViewTextBoxColumn CungTruong;
         private System.Windows.Forms.DataGridViewTextBoxColumn CungPho;

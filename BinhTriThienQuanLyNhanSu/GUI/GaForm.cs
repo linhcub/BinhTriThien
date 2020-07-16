@@ -24,7 +24,7 @@ namespace BinhTriThienQuanLyNhanSu.GUI
         {
             dtgvGa.DataSource = context.Ga.Select(ga => new
             {
-                ga.MaGa,
+                ga.Ma,
                 ga.Ten,
                 ga.DiaChi,
                 cung = ga.Cung.Ten

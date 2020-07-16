@@ -21,7 +21,7 @@ namespace BinhTriThienQuanLyNhanSu.Models
         public int Id { get; set; }
         [Required]
         [StringLength(10)]
-        public string MaNhanVien { get; set; }
+        public string Ma { get; set; }
         [Required]
         [StringLength(50)]
         public string MatKhau { get; set; }
@@ -39,27 +39,35 @@ namespace BinhTriThienQuanLyNhanSu.Models
         public string DienThoaiDiDong { get; set; }
         [StringLength(50)]
         public string DienThoaiCoDinh { get; set; }
-        public string AnhDaiDien { get; set; }
         public int LoaiTaiKhoanId { get; set; }
-        public int? BacXepHangId { get; set; }
+        public int BacXepHangId { get; set; }
+        public string AnhDaiDien { get; set; }
+        public int? CungId { get; set; }
+        public int? PhongId { get; set; }
 
         [ForeignKey(nameof(BacXepHangId))]
         [InverseProperty("NhanVien")]
         public virtual BacXepHang BacXepHang { get; set; }
+        [ForeignKey(nameof(CungId))]
+        [InverseProperty("NhanVien")]
+        public virtual Cung Cung { get; set; }
         [ForeignKey(nameof(LoaiTaiKhoanId))]
         [InverseProperty("NhanVien")]
         public virtual LoaiTaiKhoan LoaiTaiKhoan { get; set; }
-        [InverseProperty(nameof(Cung.AnToanVeSinhVienNavigation))]
+        [ForeignKey(nameof(PhongId))]
+        [InverseProperty("NhanVien")]
+        public virtual Phong Phong { get; set; }
+        [InverseProperty("AnToanVeSinhVienNavigation")]
         public virtual ICollection<Cung> CungAnToanVeSinhVienNavigation { get; set; }
-        [InverseProperty(nameof(Cung.CongDoanVienNavigation))]
+        [InverseProperty("CongDoanVienNavigation")]
         public virtual ICollection<Cung> CungCongDoanVienNavigation { get; set; }
-        [InverseProperty(nameof(Cung.CungPhoNavigation))]
+        [InverseProperty("CungPhoNavigation")]
         public virtual ICollection<Cung> CungCungPhoNavigation { get; set; }
-        [InverseProperty(nameof(Cung.CungTruongNavigation))]
+        [InverseProperty("CungTruongNavigation")]
         public virtual ICollection<Cung> CungCungTruongNavigation { get; set; }
-        [InverseProperty(nameof(Phong.PhoPhongNavigation))]
+        [InverseProperty("PhoPhongNavigation")]
         public virtual ICollection<Phong> PhongPhoPhongNavigation { get; set; }
-        [InverseProperty(nameof(Phong.TruongPhongNavigation))]
+        [InverseProperty("TruongPhongNavigation")]
         public virtual ICollection<Phong> PhongTruongPhongNavigation { get; set; }
     }
 }

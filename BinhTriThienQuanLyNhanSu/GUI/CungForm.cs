@@ -24,7 +24,7 @@ namespace BinhTriThienQuanLyNhanSu.GUI
         {
             dtgvCung.DataSource = context.Cung.Select(cung => new
             {
-                cung.MaCung,
+                cung.Ma,
                 cung.Ten,
                 CungTruong = cung.CungTruongNavigation.Ho + " " + cung.CungTruongNavigation.Ten,
                 CungPho = cung.CungPhoNavigation.Ho + " " + cung.CungPhoNavigation.Ten,

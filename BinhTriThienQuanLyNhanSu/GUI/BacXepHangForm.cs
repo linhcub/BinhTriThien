@@ -23,7 +23,7 @@ namespace BinhTriThienQuanLyNhanSu.GUI
         {
             dtgvBacXepHang.DataSource = context.BacXepHang.Select(bxh => new
             {
-                bxh.MaBacXepHang,
+                bxh.Ma,
                 bxh.Ten,
                 bxh.HeSoLuong
             }).ToList();

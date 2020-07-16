@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dtgvGa = new System.Windows.Forms.DataGridView();
-            this.MaGa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ten = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cung = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +52,7 @@
             this.dtgvGa.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvGa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvGa.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaGa,
+            this.Ma,
             this.Ten,
             this.DiaChi,
             this.Cung});
@@ -62,11 +62,11 @@
             this.dtgvGa.Size = new System.Drawing.Size(1028, 285);
             this.dtgvGa.TabIndex = 2;
             // 
-            // MaGa
+            // Ma
             // 
-            this.MaGa.DataPropertyName = "MaGa";
-            this.MaGa.HeaderText = "Mã";
-            this.MaGa.Name = "MaGa";
+            this.Ma.DataPropertyName = "Ma";
+            this.Ma.HeaderText = "Mã Ga";
+            this.Ma.Name = "Ma";
             // 
             // Ten
             // 
@@ -106,7 +106,7 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtgvGa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaGa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ma;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ten;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cung;
