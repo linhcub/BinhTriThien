@@ -76,3 +76,8 @@ D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTri
 D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\bin\Debug\FontAwesome.Sharp.dll
 D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThienQuanLyNhanSu.GUI.HomeForm.resources
 D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThienQuanLyNhanSu.QuanLyNhanVienForm.resources
+D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThienQuanLyNhanSu.GUI.BacXepHangForm.resources
+D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThienQuanLyNhanSu.LoaiTaiKhoanForm.resources
+D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThienQuanLyNhanSu.GUI.CungForm.resources
+D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThienQuanLyNhanSu.GUI.GaForm.resources
+D:\Workspace\BinhTriThienQuanLyNhanSu\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThienQuanLyNhanSu.GUI.PhongForm.resources

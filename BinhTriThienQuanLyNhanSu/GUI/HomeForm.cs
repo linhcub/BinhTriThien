@@ -111,26 +111,31 @@ namespace BinhTriThienQuanLyNhanSu.GUI
         private void btnPhong_Click(object sender, EventArgs e)
         {
             ActiveButton(sender, RGBColors.color2);
+            OpenChildForm(new PhongForm());
         }
 
         private void btnCung_Click(object sender, EventArgs e)
         {
             ActiveButton(sender, RGBColors.color3);
+            OpenChildForm(new CungForm());
         }
 
         private void btnGa_Click(object sender, EventArgs e)
         {
             ActiveButton(sender, RGBColors.color4);
+            OpenChildForm(new GaForm());
         }
 
         private void btnBacXepHang_Click(object sender, EventArgs e)
         {
             ActiveButton(sender, RGBColors.color5);
+            OpenChildForm(new BacXepHangForm());
         }
 
         private void btnLoaiTaiKhoan_Click(object sender, EventArgs e)
         {
             ActiveButton(sender, RGBColors.color6);
+            OpenChildForm(new LoaiTaiKhoanForm());
         }
 
         private void btnHome_Click(object sender, EventArgs e)
