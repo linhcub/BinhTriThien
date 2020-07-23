@@ -1,7 +1,6 @@
 ﻿using BinhTriThienQuanLyNhanSu.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -13,60 +12,77 @@ namespace BinhTriThienQuanLyNhanSu
 	public partial class QuanLyNhanVienForm : Form
 	{
 		BinhTriThienContext context = new BinhTriThienContext();
-		private ErrorProvider errorProviderMaNhanVien = new ErrorProvider();
-		private ErrorProvider errorProviderMatKhau = new ErrorProvider();
-		private ErrorProvider errorProviderHo = new ErrorProvider();
-		private ErrorProvider errorProviderTen = new ErrorProvider();
-		private bool isDataValid = false;
-		List<NhanVienDisplay> nhanVienList;
 
 		public QuanLyNhanVienForm()
 		{
 			InitializeComponent();
-			View();
 		}
 
-		public class NhanVienDisplay
+		private void EnableAllDataControls()
 		{
-			public string Ma;
-			public string MatKhau;
-			public string Ho;
-			public string Ten;
-			public string LoaiTaiKhoan;
-			public string BacXepHang;
-			public string Phong;
-			public string Cung;
-			public string DienThoaiDiDong;
-			public string DienThoaiCoDinh;
-			public string Email;
-			public string DiaChi;
-
-			public LoaiTaiKhoan LoaiTaiKhoanRef;
-			public BacXepHang BacXepHangRef;
-			public Phong PhongRef;
-			public Cung CungRef;
+			txbMaNhanVien.Enabled = true;
+			txbMatKhau.Enabled = true;
+			txbHo.Enabled = true;
+			txbTen.Enabled = true;
+			cbLoaiTaiKhoan.Enabled = true;
+			cbBacXepHang.Enabled = true;
+			cbPhong.Enabled = true;
+			cbCung.Enabled = true;
+			txbDienThoaiDiDong.Enabled = true;
+			txbDienThoaiCoDinh.Enabled = true;
+			txbEmail.Enabled = true;
+			txbDiaChi.Enabled = true;
 		}
 
-		private void View()
+		private void DisableAllDataControls()
 		{
-			var nhanViens = context.NhanVien.Select(nhanVien => new
+			txbMaNhanVien.Enabled = false;
+			txbMatKhau.Enabled = false;
+			txbHo.Enabled = false;
+			txbTen.Enabled = false;
+			cbLoaiTaiKhoan.Enabled = false;
+			cbBacXepHang.Enabled = false;
+			cbPhong.Enabled = false;
+			cbCung.Enabled = false;
+			txbDienThoaiDiDong.Enabled = false;
+			txbDienThoaiCoDinh.Enabled = false;
+			txbEmail.Enabled = false;
+			txbDiaChi.Enabled = false;
+		}
+
+		private void ResetDataInputControls()
+		{
+			txbMaNhanVien.Text = "";
+			txbMatKhau.Text = "";
+			txbHo.Text = "";
+			txbTen.Text = "";
+			cbLoaiTaiKhoan.SelectedItem = null;
+			cbBacXepHang.SelectedItem = null;
+			cbPhong.SelectedItem = null;
+			cbCung.SelectedItem = null;
+			txbDienThoaiDiDong.Text = "";
+			txbDienThoaiCoDinh.Text = "";
+			txbEmail.Text = "";
+			txbDiaChi.Text = "";
+		}
+
+		private void FetchNhanVien()
+		{
+			dtgvNhanVien.DataSource = context.NhanVien.Select(nhanVien => new
 			{
-				Ma = nhanVien.Ma,
-				MatKhau = nhanVien.MatKhau,
-				Ho = nhanVien.Ho,
-				Ten = nhanVien.Ten,
+				nhanVien.Ma,
+				nhanVien.MatKhau,
+				nhanVien.Ho,
+				nhanVien.Ten,
 				LoaiTaiKhoan = nhanVien.LoaiTaiKhoan.Ten,
 				BacXepHang = nhanVien.BacXepHang.Ten,
 				Phong = nhanVien.Phong.Ten,
 				Cung = nhanVien.Cung.Ten,
-				DienThoaiDiDong = nhanVien.DienThoaiDiDong,
-				DienThoaiCoDinh = nhanVien.DienThoaiCoDinh,
-				Email = nhanVien.Email,
-				DiaChi = nhanVien.DiaChi,
-			});
-
-			var nhanVienLists = nhanViens.ToList();
-			dtgvNhanVien.DataSource = nhanVienLists;
+				nhanVien.DienThoaiDiDong,
+				nhanVien.DienThoaiCoDinh,
+				nhanVien.Email,
+				nhanVien.DiaChi,
+			}).ToList();
 
 			cbLoaiTaiKhoan.DataSource = context.LoaiTaiKhoan.ToList();
 			cbLoaiTaiKhoan.ValueMember = "Ma";
@@ -85,9 +101,108 @@ namespace BinhTriThienQuanLyNhanSu
 			cbCung.DisplayMember = "Ten";
 		}
 
-		private void btnSave_Click(object sender, EventArgs e)
+		#region State Mangement
+		private void GoToInitState()
 		{
-			if (!isDataValid)
+			ResetDataInputControls();
+			DisableAllDataControls();
+			btnAddNew.Visible = true;
+			btnAdd.Visible = false;
+			btnCancel.Visible = false;
+			btnEdit.Visible = false;
+			btnDelete.Visible = false;
+			dtgvNhanVien.Enabled = true;
+			dtgvNhanVien.ClearSelection();
+		}
+
+		private void GoToAddNewState()
+		{
+			EnableAllDataControls();
+			ResetDataInputControls();
+			btnAddNew.Visible = false;
+			btnAdd.Visible = true;
+			btnCancel.Visible = true;
+			btnEdit.Visible = false;
+			btnDelete.Visible = false;
+			dtgvNhanVien.Enabled = false;
+			dtgvNhanVien.ClearSelection();
+		}
+
+		private void GoToChangeState()
+		{
+			EnableAllDataControls();
+			btnAddNew.Visible = false;
+			btnAdd.Visible = false;
+			btnCancel.Visible = true;
+			btnEdit.Visible = true;
+			btnDelete.Visible = true;
+		}
+		#endregion
+
+		private bool isRequiredOk()
+		{
+			return !string.IsNullOrEmpty(txbMaNhanVien.Text)
+				&& !string.IsNullOrEmpty(txbMatKhau.Text)
+				&& !string.IsNullOrEmpty(txbHo.Text)
+				&& !string.IsNullOrEmpty(txbTen.Text)
+				&& cbLoaiTaiKhoan.SelectedValue != null
+				&& cbBacXepHang.SelectedValue != null;
+		}
+
+		#region Events
+		private void QuanLyNhanVienForm_Load(object sender, EventArgs e)
+		{
+			FetchNhanVien();
+			GoToInitState();
+		}
+
+		private void BtnAddNew_Click(object sender, EventArgs e)
+		{
+			GoToAddNewState();
+		}
+
+		private async void btnAdd_Click(object sender, EventArgs e)
+		{
+			if (!isRequiredOk())
+			{
+				string message = "Hãy nhập đúng dữ liệu trước khi lưu";
+				string caption = "Lỗi nhập dữ liệu ";
+				MessageBoxButtons buttons = MessageBoxButtons.OK;
+				MessageBox.Show(message, caption, buttons);
+				return;
+			}
+			var maLoaiTaiKhoan = cbLoaiTaiKhoan.SelectedValue?.ToString();
+			var loaiTaiKhoan = context.LoaiTaiKhoan.FirstOrDefault(ltk => ltk.Ma == maLoaiTaiKhoan);
+			var maBacXepHang = cbBacXepHang.SelectedValue?.ToString();
+			var bacXepHang = context.BacXepHang.FirstOrDefault(bxh => bxh.Ma == maBacXepHang);
+			var maPhong = cbPhong.SelectedValue?.ToString();
+			var phong = context.Phong.FirstOrDefault(p => p.Ma == maPhong);
+			var maCung = cbCung.SelectedValue?.ToString();
+			var cung = context.Cung.FirstOrDefault(c => c.Ma == maCung);
+			var newNhanVien = new NhanVien()
+			{
+				Ma = txbMaNhanVien.Text,
+				MatKhau = txbMaNhanVien.Text,
+				Ho = txbHo.Text,
+				Ten = txbTen.Text,
+				LoaiTaiKhoan = loaiTaiKhoan,
+				BacXepHang = bacXepHang,
+				Phong = phong,
+				Cung = cung,
+				DienThoaiDiDong = txbDienThoaiDiDong.Text,
+				DienThoaiCoDinh = txbDienThoaiCoDinh.Text,
+				Email = txbEmail.Text,
+				DiaChi = txbDiaChi.Text
+			};
+			context.Add(newNhanVien);
+			await context.SaveChangesAsync();
+			FetchNhanVien();
+			GoToInitState();
+		}
+
+		private void BtnEdit_Click(object sender, EventArgs e)
+		{
+			if (!isRequiredOk())
 			{
 				string message = "Hãy nhập đúng dữ liệu trước khi lưu";
 				string caption = "Lỗi nhập dữ liệu ";
@@ -96,72 +211,39 @@ namespace BinhTriThienQuanLyNhanSu
 				return;
 			}
 			NhanVien nhanVien = context.NhanVien.FirstOrDefault(nv => nv.Ma == txbMaNhanVien.Text);
+			var maLoaiTaiKhoan = cbLoaiTaiKhoan.SelectedValue?.ToString();
+			var loaiTaiKhoan = context.LoaiTaiKhoan.FirstOrDefault(ltk => ltk.Ma == maLoaiTaiKhoan);
+			var maBacXepHang = cbBacXepHang.SelectedValue?.ToString();
+			var bacXepHang = context.BacXepHang.FirstOrDefault(bxh => bxh.Ma == maBacXepHang);
+			var maPhong = cbPhong.SelectedValue?.ToString();
+			var phong = context.Phong.FirstOrDefault(p => p.Ma == maPhong);
+			var maCung = cbCung.SelectedValue?.ToString();
+			var cung = context.Cung.FirstOrDefault(c => c.Ma == maCung);
 			if (nhanVien != null)
 			{
-				// sửa
 				nhanVien.Ma = txbMaNhanVien.Text;
 				nhanVien.MatKhau = txbMatKhau.Text;
 				nhanVien.Ho = txbHo.Text;
 				nhanVien.Ten = txbTen.Text;
-				nhanVien.DiaChi = txbDiaChi.Text;
-				nhanVien.Email = txbEmail.Text;
 				nhanVien.DienThoaiDiDong = txbDienThoaiDiDong.Text;
 				nhanVien.DienThoaiCoDinh = txbDienThoaiCoDinh.Text;
-				//nhanVien.LoaiTaiKhoan = taiKhoanAdmin;
-				//nhanVien.BacXepHang = bac1;
+				nhanVien.Email = txbEmail.Text;
+				nhanVien.DiaChi = txbDiaChi.Text;
+				nhanVien.LoaiTaiKhoan = loaiTaiKhoan;
+				nhanVien.BacXepHang = bacXepHang;
+				nhanVien.Phong = phong;
+				nhanVien.Cung = cung;
 				context.SaveChanges();
 			}
-			else
-			{
-				// thêm
-				var taiKhoanAdmin = context.LoaiTaiKhoan.First(taikhoan => taikhoan.Ma == "TK01");
-				var bac1 = context.BacXepHang.First(bacxephang => bacxephang.Ma == "Bac01");
-				var newNhanVien = new NhanVien()
-				{
-					Ma = txbMaNhanVien.Text,
-					MatKhau = txbMaNhanVien.Text,
-					Ho = txbHo.Text,
-					Ten = txbTen.Text,
-					DiaChi = txbDiaChi.Text,
-					Email = txbEmail.Text,
-					DienThoaiDiDong = txbDienThoaiDiDong.Text,
-					DienThoaiCoDinh = txbDienThoaiCoDinh.Text,
-					LoaiTaiKhoan = taiKhoanAdmin,
-					BacXepHang = bac1
-				};
-				context.Add(newNhanVien);
-				context.SaveChanges();
-				dtgvNhanVien.Enabled = true;
-			}
-		}
-
-		private void btnAdd_Click(object sender, EventArgs e)
-		{
-			txbMaNhanVien.Text = "";
-			txbMatKhau.Text = "";
-			txbHo.Text = "";
-			txbTen.Text = "";
-			txbDienThoaiDiDong.Text = "";
-			txbDienThoaiCoDinh.Text = "";
-			txbEmail.Text = "";
-			txbDiaChi.Text = "";
-			cbLoaiTaiKhoan.SelectedItem = null;
-			cbBacXepHang.SelectedItem = null;
-
-			btnCancel.Visible = true;
-			dtgvNhanVien.Enabled = false;
-			dtgvNhanVien.ClearSelection();
+			FetchNhanVien();
+			GoToInitState();
 		}
 
 		private void btnCancel_Click(object sender, EventArgs e)
 		{
+			GoToInitState();
 			dtgvNhanVien.Enabled = true;
 			btnCancel.Visible = false;
-		}
-
-		private void btnView_Click(object sender, System.EventArgs e)
-		{
-			View();
 		}
 
 		private void btnDelete_Click(object sender, System.EventArgs e)
@@ -171,68 +253,16 @@ namespace BinhTriThienQuanLyNhanSu
 			{
 				const string message = "Bạn có chắc xóa nhân viên này ?";
 				const string caption = "Xóa nhân viên";
-				DialogResult result = MessageBox.Show(message, caption,
-											 MessageBoxButtons.YesNo,
-											 MessageBoxIcon.Warning);
-				if (result == DialogResult.No)
-				{
-					return;
-				}
+				const MessageBoxButtons button = MessageBoxButtons.YesNo;
+				const MessageBoxIcon icon = MessageBoxIcon.Warning;
+				DialogResult result = MessageBox.Show(message, caption, button, icon);
+				if (result == DialogResult.No) return;
 				context.Remove(nhanVien);
 				context.SaveChanges();
-				MessageBox.Show("Xóa thành công", "Thông báo",
-											 MessageBoxButtons.OK,
-											 MessageBoxIcon.Information);
+				MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				GoToInitState();
+				FetchNhanVien();
 			}
-		}
-
-		private void btnSearch_Click(object sender, EventArgs e)
-		{
-			MessageBox.Show("Chưa phát triển", "Thông báo",
-							 MessageBoxButtons.OK,
-							 MessageBoxIcon.Information);
-		}
-
-		private void QuanLyNhanVienForm_Load(object sender, EventArgs e)
-		{
-
-		}
-
-		#region validation
-		private void validateRequired(TextBox textBox, ErrorProvider errorProvider)
-		{
-			if (string.IsNullOrEmpty(textBox.Text.Trim()))
-			{
-				errorProvider.SetError(textBox, "Bắt buộc");
-				isDataValid = false;
-			}
-			else
-			{
-				errorProvider.SetError(textBox, string.Empty);
-				isDataValid = true;
-			}
-		}
-
-		private void txbMaNhanVien_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-		{
-			validateRequired(txbMaNhanVien, errorProviderMaNhanVien);
-		}
-
-		private void txbMatKhau_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-		{
-			validateRequired(txbMatKhau, errorProviderMatKhau);
-		}
-
-		private void txbHo_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-		{
-			validateRequired(txbHo, errorProviderHo);
-		}
-		#endregion
-
-		private void txbTen_Validating(object sender, System.ComponentModel.CancelEventArgs e)
-		{
-			validateRequired(txbTen, errorProviderTen);
-
 		}
 
 		private void DtgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -260,6 +290,14 @@ namespace BinhTriThienQuanLyNhanSu
 			txbDienThoaiCoDinh.Text = nhanVien.DienThoaiCoDinh;
 			txbEmail.Text = nhanVien.Email;
 			txbDiaChi.Text = nhanVien.DiaChi;
+
+			GoToChangeState();
 		}
+
+		private void DtgvNhanVien_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+		{
+			if (dtgvNhanVien.Rows.Count > 0) dtgvNhanVien.Rows[0].Selected = false;
+		}
+		#endregion
 	}
 }
