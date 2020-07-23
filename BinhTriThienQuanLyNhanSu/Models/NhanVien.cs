@@ -41,7 +41,7 @@ namespace BinhTriThienQuanLyNhanSu.Models
         public string DienThoaiCoDinh { get; set; }
         public int LoaiTaiKhoanId { get; set; }
         public int? BacXepHangId { get; set; }
-        public string AnhDaiDien { get; set; }
+		public string AnhDaiDien { get; set; }
         public int? CungId { get; set; }
         public int? PhongId { get; set; }
 

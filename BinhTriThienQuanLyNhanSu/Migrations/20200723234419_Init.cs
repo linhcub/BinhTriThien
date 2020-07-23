@@ -51,7 +51,7 @@ namespace BinhTriThienQuanLyNhanSu.Migrations
                     DienThoaiDiDong = table.Column<string>(maxLength: 50, nullable: true),
                     DienThoaiCoDinh = table.Column<string>(maxLength: 50, nullable: true),
                     LoaiTaiKhoanId = table.Column<int>(nullable: false),
-                    BacXepHangId = table.Column<int>(nullable: false),
+                    BacXepHangId = table.Column<int>(nullable: true),
                     AnhDaiDien = table.Column<string>(nullable: true),
                     CungId = table.Column<int>(nullable: true),
                     PhongId = table.Column<int>(nullable: true)

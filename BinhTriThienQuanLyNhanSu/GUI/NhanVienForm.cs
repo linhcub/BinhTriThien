@@ -255,7 +255,7 @@ namespace BinhTriThienQuanLyNhanSu
 			nhanVien.Cung = cung;
 			context.SaveChanges();
 			MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-			
+
 			FetchNhanVien();
 			GoToInitState();
 		}
@@ -319,6 +319,25 @@ namespace BinhTriThienQuanLyNhanSu
 		{
 			if (dtgvNhanVien.Rows.Count > 0) dtgvNhanVien.Rows[0].Selected = false;
 		}
-		#endregion
+
+		private void BtnChangeAvatar_Click(object sender, EventArgs e)
+		{
+			//OpenFileDialog dialog = new OpenFileDialog();
+			//dialog.Title = "Thay đổi ảnh đại diện";
+			//dialog.Filter =
+			//	"Images (*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|" +
+			//	"All files (*.*)|*.*";
+			//if (dialog.ShowDialog() == DialogResult.OK)
+			//	try
+			//	{
+			//		picAnhDaiDien.ImageLocation = dialog.FileName.ToString();
+			//	}
+			//	catch (Exception ex)
+			//	{
+			//		MessageBox.Show("Không thể load ảnh");
+			//	}
+			MessageBox.Show("Đang phát triển");
+		}
 	}
+		#endregion
 }

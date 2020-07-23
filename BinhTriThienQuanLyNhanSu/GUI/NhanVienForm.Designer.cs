@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.dtgvNhanVien = new System.Windows.Forms.DataGridView();
 			this.Ma = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.MatKhau = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,6 +77,7 @@
 			this.btnDelete = new FontAwesome.Sharp.IconButton();
 			this.btnCancel = new FontAwesome.Sharp.IconButton();
 			this.btnAddNew = new FontAwesome.Sharp.IconButton();
+			this.btnChangeAvatar = new FontAwesome.Sharp.IconButton();
 			((System.ComponentModel.ISupportInitialize)(this.dtgvNhanVien)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.picAnhDaiDien)).BeginInit();
 			this.SuspendLayout();
@@ -86,14 +87,14 @@
 			this.dtgvNhanVien.AllowUserToAddRows = false;
 			this.dtgvNhanVien.AllowUserToDeleteRows = false;
 			this.dtgvNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dtgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dtgvNhanVien.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.dtgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dtgvNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Ma,
@@ -257,6 +258,7 @@
 			// 
 			this.txbDienThoaiDiDong.AccessibleName = "";
 			this.txbDienThoaiDiDong.Location = new System.Drawing.Point(406, 125);
+			this.txbDienThoaiDiDong.MaxLength = 50;
 			this.txbDienThoaiDiDong.Name = "txbDienThoaiDiDong";
 			this.txbDienThoaiDiDong.Size = new System.Drawing.Size(145, 19);
 			this.txbDienThoaiDiDong.TabIndex = 12;
@@ -274,6 +276,7 @@
 			// 
 			this.txbDienThoaiCoDinh.AccessibleName = "";
 			this.txbDienThoaiCoDinh.Location = new System.Drawing.Point(702, 123);
+			this.txbDienThoaiCoDinh.MaxLength = 50;
 			this.txbDienThoaiCoDinh.Name = "txbDienThoaiCoDinh";
 			this.txbDienThoaiCoDinh.Size = new System.Drawing.Size(144, 19);
 			this.txbDienThoaiCoDinh.TabIndex = 14;
@@ -291,6 +294,7 @@
 			// 
 			this.txbEmail.AccessibleName = "";
 			this.txbEmail.Location = new System.Drawing.Point(406, 149);
+			this.txbEmail.MaxLength = 50;
 			this.txbEmail.Name = "txbEmail";
 			this.txbEmail.Size = new System.Drawing.Size(440, 19);
 			this.txbEmail.TabIndex = 16;
@@ -308,6 +312,7 @@
 			// 
 			this.txbDiaChi.AccessibleName = "";
 			this.txbDiaChi.Location = new System.Drawing.Point(406, 174);
+			this.txbDiaChi.MaxLength = 100;
 			this.txbDiaChi.Name = "txbDiaChi";
 			this.txbDiaChi.Size = new System.Drawing.Size(440, 19);
 			this.txbDiaChi.TabIndex = 18;
@@ -404,7 +409,7 @@
 			this.picAnhDaiDien.Location = new System.Drawing.Point(91, 24);
 			this.picAnhDaiDien.Name = "picAnhDaiDien";
 			this.picAnhDaiDien.Size = new System.Drawing.Size(159, 165);
-			this.picAnhDaiDien.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.picAnhDaiDien.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.picAnhDaiDien.TabIndex = 11;
 			this.picAnhDaiDien.TabStop = false;
 			// 
@@ -558,11 +563,29 @@
 			this.btnAddNew.UseVisualStyleBackColor = false;
 			this.btnAddNew.Click += new System.EventHandler(this.BtnAddNew_Click);
 			// 
+			// btnChangeAvatar
+			// 
+			this.btnChangeAvatar.AutoSize = true;
+			this.btnChangeAvatar.FlatAppearance.BorderSize = 0;
+			this.btnChangeAvatar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnChangeAvatar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+			this.btnChangeAvatar.IconChar = FontAwesome.Sharp.IconChar.Edit;
+			this.btnChangeAvatar.IconColor = System.Drawing.SystemColors.Highlight;
+			this.btnChangeAvatar.IconSize = 20;
+			this.btnChangeAvatar.Location = new System.Drawing.Point(216, 25);
+			this.btnChangeAvatar.Name = "btnChangeAvatar";
+			this.btnChangeAvatar.Rotation = 0D;
+			this.btnChangeAvatar.Size = new System.Drawing.Size(34, 26);
+			this.btnChangeAvatar.TabIndex = 48;
+			this.btnChangeAvatar.UseVisualStyleBackColor = true;
+			this.btnChangeAvatar.Click += new System.EventHandler(this.BtnChangeAvatar_Click);
+			// 
 			// QuanLyNhanVienForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1028, 515);
+			this.Controls.Add(this.btnChangeAvatar);
 			this.Controls.Add(this.btnDelete);
 			this.Controls.Add(this.label17);
 			this.Controls.Add(this.label16);
@@ -659,6 +682,7 @@
 		private FontAwesome.Sharp.IconButton btnDelete;
 		private FontAwesome.Sharp.IconButton btnCancel;
 		private FontAwesome.Sharp.IconButton btnAddNew;
+		private FontAwesome.Sharp.IconButton btnChangeAvatar;
 	}
 }
 

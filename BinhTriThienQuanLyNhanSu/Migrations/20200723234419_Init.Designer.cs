@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BinhTriThienQuanLyNhanSu.Migrations
 {
     [DbContext(typeof(BinhTriThienContext))]
-    [Migration("20200723220048_AllowBacXepHangNull")]
-    partial class AllowBacXepHangNull
+    [Migration("20200723234419_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

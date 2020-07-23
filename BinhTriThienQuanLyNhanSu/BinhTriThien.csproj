@@ -188,13 +188,9 @@
     <Compile Include="GUI\HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20200723104831_Init.cs" />
-    <Compile Include="Migrations\20200723104831_Init.designer.cs">
-      <DependentUpon>20200723104831_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20200723220048_AllowBacXepHangNull.cs" />
-    <Compile Include="Migrations\20200723220048_AllowBacXepHangNull.designer.cs">
-      <DependentUpon>20200723220048_AllowBacXepHangNull.cs</DependentUpon>
+    <Compile Include="Migrations\20200723234419_Init.cs" />
+    <Compile Include="Migrations\20200723234419_Init.designer.cs">
+      <DependentUpon>20200723234419_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\BinhTriThienContextModelSnapshot.cs" />
     <Compile Include="Models\BacXepHang.cs" />
