@@ -188,6 +188,11 @@
     <Compile Include="GUI\HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200723104831_Init.cs" />
+    <Compile Include="Migrations\20200723104831_Init.designer.cs">
+      <DependentUpon>20200723104831_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\BinhTriThienContextModelSnapshot.cs" />
     <Compile Include="Models\BacXepHang.cs" />
     <Compile Include="Models\BinhTriThienContext.cs" />
     <Compile Include="Models\Cung.cs" />
@@ -244,6 +249,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo-binhtrithien.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\person.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\packages\Microsoft.Data.SqlClient.SNI.1.0.19235.1\build\net46\Microsoft.Data.SqlClient.SNI.targets')" />
