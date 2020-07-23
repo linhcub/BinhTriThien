@@ -167,9 +167,24 @@ namespace BinhTriThienQuanLyNhanSu
 				string message = "Hãy nhập đúng dữ liệu trước khi lưu";
 				string caption = "Lỗi nhập dữ liệu ";
 				MessageBoxButtons buttons = MessageBoxButtons.OK;
-				MessageBox.Show(message, caption, buttons);
+				MessageBoxIcon icon = MessageBoxIcon.Exclamation;
+				MessageBox.Show(message, caption, buttons, icon);
 				return;
 			}
+
+			// Kiểm tra nhân viên đã tồn tại hay chưa
+			NhanVien nhanVien = context.NhanVien.Where(nv => nv.Ma == txbMaNhanVien.Text).FirstOrDefault();
+			bool isNhanVienExisting = nhanVien != null;
+			if (isNhanVienExisting)
+			{
+				const string message = "Nhân viên đã tồn tại";
+				const string caption = "Thông Báo";
+				const MessageBoxButtons button = MessageBoxButtons.OK;
+				const MessageBoxIcon icon = MessageBoxIcon.Warning;
+				DialogResult result = MessageBox.Show(message, caption, button, icon);
+				return;
+			}
+
 			var maLoaiTaiKhoan = cbLoaiTaiKhoan.SelectedValue?.ToString();
 			var loaiTaiKhoan = context.LoaiTaiKhoan.FirstOrDefault(ltk => ltk.Ma == maLoaiTaiKhoan);
 			var maBacXepHang = cbBacXepHang.SelectedValue?.ToString();
@@ -195,6 +210,7 @@ namespace BinhTriThienQuanLyNhanSu
 			};
 			context.Add(newNhanVien);
 			await context.SaveChangesAsync();
+			MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			FetchNhanVien();
 			GoToInitState();
 		}
@@ -218,22 +234,28 @@ namespace BinhTriThienQuanLyNhanSu
 			var phong = context.Phong.FirstOrDefault(p => p.Ma == maPhong);
 			var maCung = cbCung.SelectedValue?.ToString();
 			var cung = context.Cung.FirstOrDefault(c => c.Ma == maCung);
-			if (nhanVien != null)
+
+			if (nhanVien == null)
 			{
-				nhanVien.Ma = txbMaNhanVien.Text;
-				nhanVien.MatKhau = txbMatKhau.Text;
-				nhanVien.Ho = txbHo.Text;
-				nhanVien.Ten = txbTen.Text;
-				nhanVien.DienThoaiDiDong = txbDienThoaiDiDong.Text;
-				nhanVien.DienThoaiCoDinh = txbDienThoaiCoDinh.Text;
-				nhanVien.Email = txbEmail.Text;
-				nhanVien.DiaChi = txbDiaChi.Text;
-				nhanVien.LoaiTaiKhoan = loaiTaiKhoan;
-				nhanVien.BacXepHang = bacXepHang;
-				nhanVien.Phong = phong;
-				nhanVien.Cung = cung;
-				context.SaveChanges();
+				MessageBox.Show("Nhân viên không tồn tại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				return;
 			}
+
+			nhanVien.Ma = txbMaNhanVien.Text;
+			nhanVien.MatKhau = txbMatKhau.Text;
+			nhanVien.Ho = txbHo.Text;
+			nhanVien.Ten = txbTen.Text;
+			nhanVien.DienThoaiDiDong = txbDienThoaiDiDong.Text;
+			nhanVien.DienThoaiCoDinh = txbDienThoaiCoDinh.Text;
+			nhanVien.Email = txbEmail.Text;
+			nhanVien.DiaChi = txbDiaChi.Text;
+			nhanVien.LoaiTaiKhoan = loaiTaiKhoan;
+			nhanVien.BacXepHang = bacXepHang;
+			nhanVien.Phong = phong;
+			nhanVien.Cung = cung;
+			context.SaveChanges();
+			MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			
 			FetchNhanVien();
 			GoToInitState();
 		}
