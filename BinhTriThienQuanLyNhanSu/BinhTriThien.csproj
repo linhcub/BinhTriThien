@@ -192,6 +192,10 @@
     <Compile Include="Migrations\20200723104831_Init.designer.cs">
       <DependentUpon>20200723104831_Init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20200723220048_AllowBacXepHangNull.cs" />
+    <Compile Include="Migrations\20200723220048_AllowBacXepHangNull.designer.cs">
+      <DependentUpon>20200723220048_AllowBacXepHangNull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\BinhTriThienContextModelSnapshot.cs" />
     <Compile Include="Models\BacXepHang.cs" />
     <Compile Include="Models\BinhTriThienContext.cs" />

@@ -145,8 +145,7 @@ namespace BinhTriThienQuanLyNhanSu
 				&& !string.IsNullOrEmpty(txbMatKhau.Text)
 				&& !string.IsNullOrEmpty(txbHo.Text)
 				&& !string.IsNullOrEmpty(txbTen.Text)
-				&& cbLoaiTaiKhoan.SelectedValue != null
-				&& cbBacXepHang.SelectedValue != null;
+				&& cbLoaiTaiKhoan.SelectedValue != null;
 		}
 
 		#region Events
@@ -282,7 +281,7 @@ namespace BinhTriThienQuanLyNhanSu
 			txbTen.Text = nhanVien.Ten;
 
 			cbLoaiTaiKhoan.SelectedValue = nhanVien.LoaiTaiKhoan.Ma;
-			cbBacXepHang.SelectedValue = nhanVien.BacXepHang.Ma;
+			cbBacXepHang.SelectedValue = nhanVien.BacXepHang == null ? string.Empty : nhanVien.BacXepHang.Ma;
 			cbPhong.SelectedValue = nhanVien.Phong == null ? string.Empty : nhanVien.Phong.Ma;
 			cbCung.SelectedValue = nhanVien.Cung == null ? string.Empty : nhanVien.Cung.Ma;
 

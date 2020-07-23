@@ -40,7 +40,7 @@ namespace BinhTriThienQuanLyNhanSu.Models
         [StringLength(50)]
         public string DienThoaiCoDinh { get; set; }
         public int LoaiTaiKhoanId { get; set; }
-        public int BacXepHangId { get; set; }
+        public int? BacXepHangId { get; set; }
         public string AnhDaiDien { get; set; }
         public int? CungId { get; set; }
         public int? PhongId { get; set; }
