@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BinhTriThienQuanLyNhanSu.Models;
 using FontAwesome.Sharp;
 
 namespace BinhTriThienQuanLyNhanSu.GUI
@@ -18,6 +19,7 @@ namespace BinhTriThienQuanLyNhanSu.GUI
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
+		private NhanVien user;
 
         // Constructor
         public HomeForm()
@@ -31,7 +33,8 @@ namespace BinhTriThienQuanLyNhanSu.GUI
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
-        }
+			this.StartPosition = FormStartPosition.CenterScreen;
+		}
 
         // Structs
         private struct RGBColors
@@ -44,7 +47,13 @@ namespace BinhTriThienQuanLyNhanSu.GUI
             public static Color color6 = Color.FromArgb(24, 161, 251);
         }
 
-        // Methods
+		// Methods
+		public void setLoginUser(NhanVien nhanVien)
+		{
+			this.user = nhanVien;
+			this.lblUsername.Text = this.user.Ten;
+		}
+
         private void ActiveButton(object senderBtn, Color color)
         {
             if (senderBtn != null)
@@ -84,11 +93,7 @@ namespace BinhTriThienQuanLyNhanSu.GUI
 
         private void OpenChildForm(Form childForm)
         {
-            if (currentChildForm != null)
-            {
-                // open only form
-                currentChildForm.Close();
-            }
+            if (currentChildForm != null) currentChildForm.Close();
             currentChildForm = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
@@ -140,7 +145,7 @@ namespace BinhTriThienQuanLyNhanSu.GUI
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            currentChildForm.Close();
+			if (currentChildForm != null) currentChildForm.Close();
             Reset();
         }
 
@@ -150,7 +155,7 @@ namespace BinhTriThienQuanLyNhanSu.GUI
             leftBorderBtn.Visible = false;
             iconCurrentChildForm.IconChar = IconChar.Home;
             iconCurrentChildForm.IconColor = Color.MediumPurple;
-            lblTitleChildForm.Text = "Home";
+            lblTitleChildForm.Text = "TRANG CHÍNH";
         }
 
         // Drag Form

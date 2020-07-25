@@ -4,14 +4,16 @@ using BinhTriThienQuanLyNhanSu.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BinhTriThienQuanLyNhanSu.Migrations
 {
     [DbContext(typeof(BinhTriThienContext))]
-    partial class BinhTriThienContextModelSnapshot : ModelSnapshot
+    [Migration("20200723104831_Init")]
+    partial class Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -164,10 +166,10 @@ namespace BinhTriThienQuanLyNhanSu.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<byte[]>("AnhDaiDien")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("AnhDaiDien")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("BacXepHangId")
+                    b.Property<int>("BacXepHangId")
                         .HasColumnType("int");
 
                     b.Property<int?>("CungId")
@@ -304,7 +306,8 @@ namespace BinhTriThienQuanLyNhanSu.Migrations
                     b.HasOne("BinhTriThienQuanLyNhanSu.Models.BacXepHang", "BacXepHang")
                         .WithMany("NhanVien")
                         .HasForeignKey("BacXepHangId")
-                        .HasConstraintName("FK_NhanVien_BacXepHang");
+                        .HasConstraintName("FK_NhanVien_BacXepHang")
+                        .IsRequired();
 
                     b.HasOne("BinhTriThienQuanLyNhanSu.Models.Cung", "Cung")
                         .WithMany("NhanVien")

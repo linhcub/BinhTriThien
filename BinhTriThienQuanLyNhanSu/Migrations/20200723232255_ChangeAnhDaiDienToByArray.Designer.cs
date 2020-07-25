@@ -4,14 +4,16 @@ using BinhTriThienQuanLyNhanSu.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BinhTriThienQuanLyNhanSu.Migrations
 {
     [DbContext(typeof(BinhTriThienContext))]
-    partial class BinhTriThienContextModelSnapshot : ModelSnapshot
+    [Migration("20200723232255_ChangeAnhDaiDienToByArray")]
+    partial class ChangeAnhDaiDienToByArray
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

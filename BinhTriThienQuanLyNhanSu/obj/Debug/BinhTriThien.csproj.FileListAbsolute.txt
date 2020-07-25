@@ -164,3 +164,4 @@ C:\Users\levanlinh.EARTH\Desktop\My own work\BinhTriThien\BinhTriThienQuanLyNhan
 C:\Users\levanlinh.EARTH\Desktop\My own work\BinhTriThien\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThien.csproj.CopyComplete
 C:\Users\levanlinh.EARTH\Desktop\My own work\BinhTriThien\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThienQuanLyNhanSu.exe
 C:\Users\levanlinh.EARTH\Desktop\My own work\BinhTriThien\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThienQuanLyNhanSu.pdb
+C:\Users\levanlinh.EARTH\Desktop\My own work\BinhTriThien\BinhTriThienQuanLyNhanSu\obj\Debug\BinhTriThienQuanLyNhanSu.GUI.LoginForm.resources

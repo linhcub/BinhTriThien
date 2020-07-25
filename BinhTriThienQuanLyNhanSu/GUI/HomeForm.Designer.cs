@@ -45,11 +45,17 @@
 			this.iconCurrentChildForm = new FontAwesome.Sharp.IconPictureBox();
 			this.panelShadow = new System.Windows.Forms.Panel();
 			this.panelDesktop = new System.Windows.Forms.Panel();
+			this.lblUsername = new System.Windows.Forms.Label();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
 			this.panelMenu.SuspendLayout();
 			this.panelLogo.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.btnHome)).BeginInit();
 			this.panelTitleBar.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).BeginInit();
+			this.panelDesktop.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// panelMenu
@@ -230,6 +236,8 @@
 			// panelTitleBar
 			// 
 			this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(25)))), ((int)(((byte)(62)))));
+			this.panelTitleBar.Controls.Add(this.pictureBox1);
+			this.panelTitleBar.Controls.Add(this.lblUsername);
 			this.panelTitleBar.Controls.Add(this.btnMinimize);
 			this.panelTitleBar.Controls.Add(this.btnMaximize);
 			this.panelTitleBar.Controls.Add(this.btnExit);
@@ -299,9 +307,9 @@
 			this.lblTitleChildForm.ForeColor = System.Drawing.Color.Gainsboro;
 			this.lblTitleChildForm.Location = new System.Drawing.Point(56, 32);
 			this.lblTitleChildForm.Name = "lblTitleChildForm";
-			this.lblTitleChildForm.Size = new System.Drawing.Size(34, 12);
+			this.lblTitleChildForm.Size = new System.Drawing.Size(83, 12);
 			this.lblTitleChildForm.TabIndex = 1;
-			this.lblTitleChildForm.Text = "Home";
+			this.lblTitleChildForm.Text = "TRANG CHÍNH";
 			// 
 			// iconCurrentChildForm
 			// 
@@ -328,11 +336,56 @@
 			// panelDesktop
 			// 
 			this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+			this.panelDesktop.Controls.Add(this.label2);
+			this.panelDesktop.Controls.Add(this.label1);
 			this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.panelDesktop.Location = new System.Drawing.Point(220, 77);
 			this.panelDesktop.Name = "panelDesktop";
 			this.panelDesktop.Size = new System.Drawing.Size(1044, 552);
 			this.panelDesktop.TabIndex = 3;
+			// 
+			// lblUsername
+			// 
+			this.lblUsername.AutoSize = true;
+			this.lblUsername.Font = new System.Drawing.Font("MS UI Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.lblUsername.ForeColor = System.Drawing.Color.Gainsboro;
+			this.lblUsername.Location = new System.Drawing.Point(798, 25);
+			this.lblUsername.Name = "lblUsername";
+			this.lblUsername.Size = new System.Drawing.Size(44, 20);
+			this.lblUsername.TabIndex = 5;
+			this.lblUsername.Text = "Linh";
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Image = global::BinhTriThienQuanLyNhanSu.Properties.Resources.person;
+			this.pictureBox1.Location = new System.Drawing.Point(729, 15);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(63, 42);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox1.TabIndex = 6;
+			this.pictureBox1.TabStop = false;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("MS UI Gothic", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label1.ForeColor = System.Drawing.Color.Tomato;
+			this.label1.Location = new System.Drawing.Point(357, 188);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(366, 54);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Quản lí nhân sự";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("MS UI Gothic", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.label2.ForeColor = System.Drawing.Color.Tomato;
+			this.label2.Location = new System.Drawing.Point(277, 256);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(497, 67);
+			this.label2.TabIndex = 1;
+			this.label2.Text = "BÌNH TRỊ THIÊN";
 			// 
 			// HomeForm
 			// 
@@ -344,13 +397,16 @@
 			this.Controls.Add(this.panelTitleBar);
 			this.Controls.Add(this.panelMenu);
 			this.Name = "HomeForm";
-			this.Text = "Home";
+			this.Text = "BINH TRI THIEN";
 			this.panelMenu.ResumeLayout(false);
 			this.panelLogo.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.btnHome)).EndInit();
 			this.panelTitleBar.ResumeLayout(false);
 			this.panelTitleBar.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.iconCurrentChildForm)).EndInit();
+			this.panelDesktop.ResumeLayout(false);
+			this.panelDesktop.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 
         }
@@ -374,5 +430,9 @@
         private FontAwesome.Sharp.IconButton btnExit;
         private FontAwesome.Sharp.IconButton btnMinimize;
         private FontAwesome.Sharp.IconButton btnMaximize;
-    }
+		private System.Windows.Forms.Label lblUsername;
+		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label label1;
+	}
 }

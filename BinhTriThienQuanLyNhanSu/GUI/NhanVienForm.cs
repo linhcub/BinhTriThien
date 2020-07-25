@@ -196,7 +196,7 @@ namespace BinhTriThienQuanLyNhanSu
 			var newNhanVien = new NhanVien()
 			{
 				Ma = txbMaNhanVien.Text,
-				MatKhau = txbMaNhanVien.Text,
+				MatKhau = txbMatKhau.Text,
 				Ho = txbHo.Text,
 				Ten = txbTen.Text,
 				LoaiTaiKhoan = loaiTaiKhoan,
@@ -281,8 +281,8 @@ namespace BinhTriThienQuanLyNhanSu
 				context.Remove(nhanVien);
 				context.SaveChanges();
 				MessageBox.Show("Xóa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				GoToInitState();
 				FetchNhanVien();
+				GoToInitState();
 			}
 		}
 
